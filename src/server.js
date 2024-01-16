@@ -32,9 +32,9 @@ mongoose
 
 app.use("/api/v1/users", authMiddleware.authMiddleware, v1UserRouter);
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/task", taskRoutes);
+app.use("/api/v1/task", authMiddleware.authMiddleware, taskRoutes);
 app.get('/', (req, res) => {
-  res.send('<h1>Cool Things are comeing!</h1>');
+  res.send('<h1>Cool Things are comeing Sooner!</h1>');
 })
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
