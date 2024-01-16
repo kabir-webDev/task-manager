@@ -1,0 +1,6 @@
+{
+    "version": 1,
+    "name": "task-manager",
+    "builds": [{ "src": "src/server.js", "use": "@vercel/node" }],
+    "routes": [{ "src": "/(.*)", "dest": "/src/server.js" }]
+  }
