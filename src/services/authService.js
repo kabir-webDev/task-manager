@@ -4,7 +4,7 @@ import User from '../database/models/User.js';
 
 const register = async ({ username, email, password, phone, profession }) => {
   try {
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return 'User already exists';
     }

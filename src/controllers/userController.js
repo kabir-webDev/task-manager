@@ -3,7 +3,7 @@ import userService from "../services/userService.js";
 const createNewUser = async (req, res) => {
   try {
       const { body } = req;
-      if (!body.username || !body.email || !body.password || !body.phone || !body.profession) {
+      if (!body.username || !body.email || !body.password) {
         return res.status(400).send({
             status: "FAILED",
             data: {
@@ -15,8 +15,6 @@ const createNewUser = async (req, res) => {
           username: body.username,
           email: body.email,
           password: body.password,
-          phone: body.phone,
-          profession: body.profession,
       };
 
       const createdUser = await userService.createNewUser(newUser);
