@@ -2,14 +2,14 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../database/models/User.js';
 
-const register = async ({ username, email, password, phone, profession }) => {
+const register = async ({ username, email, password, profession }) => {
   try {
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return 'User already exists';
     }
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ username, password:hashedPassword , email, phone, profession });
+    const user = new User({ username, password:hashedPassword , email, profession });
     const isUserSaved = await user.save();
     if (isUserSaved) {
       return 'User registered successfully';

@@ -5,6 +5,7 @@ import { router as v1UserRouter } from "./v1/routes/userRoutes.js";
 import authRoutes from './v1/routes/authRoutes.js';
 import taskRoutes from './v1/routes/taskRoutes.js';
 import authMiddleware from './middlewares/authMiddleware.js';
+import cors from 'cors';
 
 const app = express();
 app.use(cors());
