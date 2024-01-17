@@ -7,6 +7,8 @@ import taskRoutes from './v1/routes/taskRoutes.js';
 import authMiddleware from './middlewares/authMiddleware.js';
 
 const app = express();
+app.use(cors());
+
 const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
